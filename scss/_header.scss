@@ -2,6 +2,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px;
-  height: 100px;
+
+  &__logo {
+    position: absolute;
+
+    &--brand {
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    &--artcollection {
+      top: 0;
+      left: 100px;
+      width: 400px;
+      height: 100px;
+      background-color: white;
+    }
+  }
 }

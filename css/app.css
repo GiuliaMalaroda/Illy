@@ -49,6 +49,25 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .header__logo {
+    position: absolute; }
+    .header__logo--brand {
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red; }
+    .header__logo--artcollection {
+      top: 0;
+      left: 100px;
+      width: 400px;
+      height: 100px;
+      background-color: white; }
+
 body {
   width: 100vw;
   height: 100vh;
