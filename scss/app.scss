@@ -2,8 +2,37 @@
 
 @import "header";
 
+
+/* Z-INDEX TABLE */
+
+
+
 body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: pink;
+  /*overflow: hidden;*/
+}
+
+
+
+.section {
+  position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: pink;
+  background-color: tomato;
+  display: block;
+
+  &:first-child {
+    left: 0;
+    background-color: pink
+  }
+  &:nth-child(2) {
+    left: 100vw;
+    background-color: green;
+  }
+  &:last-child {
+    left: 200vw;
+    background-color: purple;
+  }
 }
