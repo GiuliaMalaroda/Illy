@@ -8,31 +8,39 @@
 
 
 body {
+  position: relative;
   min-width: 100vw;
   min-height: 100vh;
   background-color: pink;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
-
-
 .section {
-  position: absolute;
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  background-color: tomato;
-  display: block;
+  height: 100vh !important;
+  background-color: tan;
+}
 
-  &:first-child {
-    left: 0;
-    background-color: pink
-  }
-  &:nth-child(2) {
-    left: 100vw;
-    background-color: green;
-  }
-  &:last-child {
-    left: 200vw;
-    background-color: purple;
-  }
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background-color: tan;
+}
+
+.slider-progress {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20px;
+  z-index: 1;
+}
+.slider-progress .progress {
+  width: 0%;
+  height: 20px;
+  background: #E20613;
 }

@@ -52,7 +52,8 @@ table {
 .header {
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 1; }
   .header__logo {
     position: absolute; }
     .header__logo--brand {
@@ -70,23 +71,36 @@ table {
 
 /* Z-INDEX TABLE */
 body {
+  position: relative;
   min-width: 100vw;
   min-height: 100vh;
   background-color: pink;
-  /*overflow: hidden;*/ }
+  overflow: hidden; }
 
 .section {
-  position: absolute;
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  background-color: tomato;
-  display: block; }
-  .section:first-child {
-    left: 0;
-    background-color: pink; }
-  .section:nth-child(2) {
-    left: 100vw;
-    background-color: green; }
-  .section:last-child {
-    left: 200vw;
-    background-color: purple; }
+  height: 100vh !important;
+  background-color: tan; }
+
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background-color: tan; }
+
+.slider-progress {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 20px;
+  z-index: 1; }
+
+.slider-progress .progress {
+  width: 0%;
+  height: 20px;
+  background: #E20613; }

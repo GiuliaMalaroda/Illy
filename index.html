@@ -3,18 +3,109 @@
 <head>
     <title>Landing Page</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/animate.css">
 </head>
 
 <body>
+<div class="loader">
+    ...
+</div>
     <header class="header">
-        <div class="header__logo header__logo--brand"></div>
-        <div class="header__logo header__logo--artcollection"></div>
+        <div class="header__logo header__logo&#45;&#45;brand"></div>
+        <div class="header__logo header__logo&#45;&#45;artcollection"></div>
     </header>
 
-    <div id="tizio" class="section">hello world 1</div>
-    <div id="caio" class="section">hello world 2</div>
-    <div id="cesare" class="section">hello world 3</div>
+    <div class="your-class">
+        <div class="section section--first-slide">
+            first slide
+        </div>
+        <div class="section section--second-slide">
+            second slide
+        </div>
+        <div class="section section--third-slide">
+            third slide
+        </div>
+    </div>
 
+    <div class="slider-progress">
+        <div class="progress"></div>
+    </div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/parallax.min.js"></script>
+
+
+<script>
+    $(window).on("load", function() {
+       $(".loader").hide();
+    });
+</script>
+
+
+
+<script>
+    $(document).ready(function(){
+    var time = 8;
+    var $bar,
+    $slick,
+    isPause,
+    tick,
+    percentTime;
+
+    $slick = $('.your-class');
+    $slick.slick({
+        autoplay: true,
+        speed: 500
+    });
+
+    $bar = $('.slider-progress .progress');
+
+    $('.section').on({
+        mouseenter: function() {
+            isPause = true;
+        },
+        mouseleave: function() {
+            isPause = false;
+        }
+    });
+
+    function startProgressbar() {
+        resetProgressbar();
+        percentTime = 0;
+        isPause = false;
+        tick = setInterval(interval, 10);
+    }
+
+    function interval() {
+        if(isPause === false) {
+            percentTime += 1 / (time+0.1);
+            $bar.css({
+                width: percentTime+"%"
+            });
+            if(percentTime >= 100) {
+                $slick.slick('slickNext');
+                startProgressbar();
+            }
+        }
+    }
+
+
+    function resetProgressbar() {
+        $bar.css({
+            width: 0+'%'
+        });
+        clearTimeout(tick);
+    }
+
+    startProgressbar();
+
+    });
+</script>
+
 </body>
 </html>
