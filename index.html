@@ -9,24 +9,40 @@
 </head>
 
 <body>
-<div class="loader">
-    ...
-</div>
     <header class="header">
-        <div class="header__logo header__logo&#45;&#45;brand"></div>
-        <div class="header__logo header__logo&#45;&#45;artcollection"></div>
+        <div class="header__logo"><img src="img/logo.svg"></div>
     </header>
 
     <div class="your-class">
-        <div class="section section--first-slide">
-            first slide
+        <div>...</div>
+        <div class="section section--arad">
+            <div id="arad__bg" data-animation-in="fadeIn" data-animation-out="bounceOut">
+                <div class="arad__bg" data-depth="0.02"></div>
+            </div>
+            <div id="arad__plate" class="arad__plate">
+                <img src="img/arad/piatto.png" data-depth="0.1">
+            </div>
+            <div id="arad__cup" class="arad__cup">
+                <img src="img/arad/tazza.png" data-depth="0.35">
+            </div>
+            <div class="square-artist">
+                <!--<img style="position: absolute; top: 0; left: 0; opacity: 0.7;" src="img/guida.png">-->
+                <div class="square-artist__info">
+                    <div class="square-artist__info__name">Ron</div>
+                    <div class="square-artist__info__surname">arad</div>
+                </div>
+                <div class="square-artist__label">
+                    <div class="square-artist__label__accent"></div>
+                    <div class="square-artist__label__artista">artista</div>
+                </div>
+            </div>
+            <a href="">
+                <div class="square-info">
+                    <img src="img/info.svg">
+                </div>
+            </a>
         </div>
-        <div class="section section--second-slide">
-            second slide
-        </div>
-        <div class="section section--third-slide">
-            third slide
-        </div>
+        <!--<div>next slide</div>-->
     </div>
 
     <div class="slider-progress">
@@ -37,18 +53,42 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/slick.min.js"></script>
+    <script src="js/slick-animation.js"></script>
 <script src="js/parallax.min.js"></script>
 
-
 <script>
-    $(window).on("load", function() {
-       $(".loader").hide();
+    var scene = document.getElementById('arad__cup');
+    var parallaxInstance = new Parallax(arad__cup, {
+        relativeInput: true,
+        frictionX: 0.05,
+        frictionY: 0.05
+
+    });
+    var scene = document.getElementById('arad__plate');
+    var parallaxInstance = new Parallax(arad__plate, {
+        relativeInput: true,
+        frictionX: 0.05,
+        frictionY: 0.05
+    });
+    var scene = document.getElementById('arad__bg');
+    var parallaxInstance = new Parallax(arad__bg, {
+        relativeInput: true,
+        frictionX: 0.05,
+        frictionY: 0.05
     });
 </script>
 
-
-
 <script>
+    $(document).ready(function(){
+        $('.your-class').slick({
+            autoplay: true,
+            speed: 500,
+            arrows: true
+        }).slickAnimation();
+    });
+</script>
+
+<!--<script>
     $(document).ready(function(){
     var time = 8;
     var $bar,
@@ -105,7 +145,7 @@
     startProgressbar();
 
     });
-</script>
+</script>-->
 
 </body>
 </html>

@@ -5,22 +5,8 @@
   z-index: 1;
 
   &__logo {
+    top: 24px;
+    left: 24px;
     position: absolute;
-
-    &--brand {
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100px;
-      background-color: red;
-    }
-
-    &--artcollection {
-      top: 0;
-      left: 100px;
-      width: 400px;
-      height: 100px;
-      background-color: white;
-    }
   }
 }
