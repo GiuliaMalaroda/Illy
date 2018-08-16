@@ -14,10 +14,9 @@
     </header>
 
     <div class="your-class">
-        <div>...</div>
         <div class="section section--arad">
-            <div id="arad__bg" data-animation-in="fadeIn" data-animation-out="bounceOut">
-                <div class="arad__bg" data-depth="0.02"></div>
+            <div id="arad__bg">
+                <div class="arad__bg bgIn" data-depth="0.02"></div>
             </div>
             <div id="arad__plate" class="arad__plate">
                 <img src="img/arad/piatto.png" data-depth="0.1">
@@ -25,13 +24,13 @@
             <div id="arad__cup" class="arad__cup">
                 <img src="img/arad/tazza.png" data-depth="0.35">
             </div>
-            <div class="square-artist">
+            <div class="square-artist squareArtistIn">
                 <!--<img style="position: absolute; top: 0; left: 0; opacity: 0.7;" src="img/guida.png">-->
                 <div class="square-artist__info">
-                    <div class="square-artist__info__name">Ron</div>
-                    <div class="square-artist__info__surname">arad</div>
+                    <div class="square-artist__info__name infoNameIn" style="width: 135px;">Ron</div>
+                    <div class="square-artist__info__surname infoSurnameIn" style="width: 140px;">arad</div>
                 </div>
-                <div class="square-artist__label">
+                <div class="square-artist__label labelIn">
                     <div class="square-artist__label__accent"></div>
                     <div class="square-artist__label__artista">artista</div>
                 </div>
@@ -42,7 +41,9 @@
                 </div>
             </a>
         </div>
-        <!--<div>next slide</div>-->
+        <!--<div class="section">
+            <div class="cacca">coming soon</div>
+        </div>-->
     </div>
 
     <div class="slider-progress">
@@ -51,101 +52,35 @@
 
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/slick.min.js"></script>
-    <script src="js/slick-animation.js"></script>
-<script src="js/parallax.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
-<script>
-    var scene = document.getElementById('arad__cup');
-    var parallaxInstance = new Parallax(arad__cup, {
-        relativeInput: true,
-        frictionX: 0.05,
-        frictionY: 0.05
+    <script src="js/slick.js"></script>
+    <script src="js/slick-init.js"></script>
 
-    });
-    var scene = document.getElementById('arad__plate');
-    var parallaxInstance = new Parallax(arad__plate, {
-        relativeInput: true,
-        frictionX: 0.05,
-        frictionY: 0.05
-    });
-    var scene = document.getElementById('arad__bg');
-    var parallaxInstance = new Parallax(arad__bg, {
-        relativeInput: true,
-        frictionX: 0.05,
-        frictionY: 0.05
-    });
-</script>
+    <script src="js/parallax.min.js"></script>
+    <script>
+        var scene = document.getElementById('arad__cup');
+        var parallaxInstance = new Parallax(arad__cup, {
+            relativeInput: true,
+            frictionX: 0.05,
+            frictionY: 0.05
 
-<script>
-    $(document).ready(function(){
-        $('.your-class').slick({
-            autoplay: true,
-            speed: 500,
-            arrows: true
-        }).slickAnimation();
-    });
-</script>
-
-<!--<script>
-    $(document).ready(function(){
-    var time = 8;
-    var $bar,
-    $slick,
-    isPause,
-    tick,
-    percentTime;
-
-    $slick = $('.your-class');
-    $slick.slick({
-        autoplay: true,
-        speed: 500
-    });
-
-    $bar = $('.slider-progress .progress');
-
-    $('.section').on({
-        mouseenter: function() {
-            isPause = true;
-        },
-        mouseleave: function() {
-            isPause = false;
-        }
-    });
-
-    function startProgressbar() {
-        resetProgressbar();
-        percentTime = 0;
-        isPause = false;
-        tick = setInterval(interval, 10);
-    }
-
-    function interval() {
-        if(isPause === false) {
-            percentTime += 1 / (time+0.1);
-            $bar.css({
-                width: percentTime+"%"
-            });
-            if(percentTime >= 100) {
-                $slick.slick('slickNext');
-                startProgressbar();
-            }
-        }
-    }
-
-
-    function resetProgressbar() {
-        $bar.css({
-            width: 0+'%'
         });
-        clearTimeout(tick);
-    }
+        var scene = document.getElementById('arad__plate');
+        var parallaxInstance = new Parallax(arad__plate, {
+            relativeInput: true,
+            frictionX: 0.05,
+            frictionY: 0.05
+        });
+        var scene = document.getElementById('arad__bg');
+        var parallaxInstance = new Parallax(arad__bg, {
+            relativeInput: true,
+            frictionX: 0.05,
+            frictionY: 0.05
+        });
+    </script>
 
-    startProgressbar();
 
-    });
-</script>-->
 
 </body>
 </html>

@@ -71,7 +71,8 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh !important; }
+  height: 100vh !important;
+  overflow: hidden; }
   .section--arad {
     background: #d9d9d9;
     background: -webkit-gradient(left bottom, right top, color-stop(0%, #d9d9d9), color-stop(100%, #fafafa));
@@ -90,6 +91,9 @@ body {
   width: 0%;
   height: 6px;
   background: #4B4B4B; }
+
+.hidden {
+  visibility: hidden; }
 
 .square-artist {
   position: absolute;
@@ -120,7 +124,9 @@ body {
   .square-artist__label {
     position: absolute;
     bottom: 24px;
-    left: 24px; }
+    left: 24px;
+    width: 13px;
+    height: 167px; }
     .square-artist__label__accent {
       position: absolute;
       bottom: 0;
@@ -142,7 +148,7 @@ body {
               transform: rotate(-90deg); }
 
 /* SQUARE ANIMATION */
-@-webkit-keyframes squareInArtist {
+@-webkit-keyframes squareArtistIn {
   from {
     -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
@@ -150,7 +156,7 @@ body {
   to {
     -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
     clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); } }
-@keyframes squareInArtist {
+@keyframes squareArtistIn {
   from {
     -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
@@ -159,31 +165,151 @@ body {
     -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
     clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); } }
 
-.squareInArtist {
-  -webkit-animation-name: squareInArtist;
-  animation-name: squareInArtist; }
-
-@-webkit-keyframes squareOutArtist {
+@-webkit-keyframes squareInfoIn {
   from {
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); }
-  to {
     -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    visibility: hidden; } }
-
-@keyframes squareOutArtist {
-  from {
-    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); }
+    visibility: visible; }
   to {
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); } }
+
+@keyframes squareInfoIn {
+  from {
     -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    visibility: hidden; } }
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0); } }
 
-.squareOutArtist {
-  -webkit-animation-name: squareOutArtist;
-  animation-name: squareOutArtist; }
+@-webkit-keyframes labelIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0); } }
+
+@keyframes labelIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0); } }
+
+@-webkit-keyframes infoNameIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0);
+    clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0); } }
+
+@keyframes infoNameIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0);
+    clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0); } }
+
+@-webkit-keyframes infoSurnameIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0);
+    clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0); } }
+
+@keyframes infoSurnameIn {
+  from {
+    -webkit-clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    clip-path: polygon(0 100%, 0 100%, 0 0, 0 0);
+    visibility: visible; }
+  to {
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0);
+    clip-path: polygon(100% 100%, 0 100%, 0 0, 100% 0); } }
+
+@-webkit-keyframes bgIn {
+  from {
+    opacity: 0;
+    visibility: visible; }
+  to {
+    opacity: 1; } }
+
+@keyframes bgIn {
+  from {
+    opacity: 0;
+    visibility: visible; }
+  to {
+    opacity: 1; } }
+
+.bgIn {
+  -webkit-animation-name: bgIn;
+          animation-name: bgIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.squareArtistIn {
+  -webkit-animation-name: squareArtistIn;
+          animation-name: squareArtistIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.labelIn {
+  -webkit-animation-name: labelIn;
+          animation-name: labelIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.infoNameIn {
+  -webkit-animation-name: infoNameIn;
+          animation-name: infoNameIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.infoSurnameIn {
+  -webkit-animation-name: infoSurnameIn;
+          animation-name: infoSurnameIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.squareInfoIn {
+  -webkit-animation-name: squareInfoIn;
+          animation-name: squareInfoIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
 
 .square-info {
   position: absolute;
